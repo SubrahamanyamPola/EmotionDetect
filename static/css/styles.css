@@ -1,0 +1,29 @@
+:root{--bg:#0b1020;--panel:#121a2e;--txt:#e8eefc;--muted:#aab2c8;--accent:#7aa2ff;--accent-2:#8affc1;--danger:#ff6b6b}
+html,body{margin:0;padding:0;background:linear-gradient(135deg,#0a0f1c,#0b1226 55%,#0e1430);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;color:var(--txt)}
+.container{max-width:1100px;margin:0 auto;padding:32px}
+.header{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(145deg,#6ea8ff,#8affc1);box-shadow:0 0 0 3px rgba(122,162,255,0.2)}
+h1{font-weight:800;margin:0;font-size:28px}
+.subtitle{color:var(--muted);margin-top:4px}
+.grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:24px}
+@media(min-width:960px){.grid{grid-template-columns:1fr 1fr}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px}
+.input, textarea{width:100%;background:var(--panel);color:var(--txt);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:12px 14px;font-size:14px;outline:none}
+textarea{min-height:120px;resize:vertical}
+.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.14);background:linear-gradient(180deg,#182142,#131a34);color:var(--txt);cursor:pointer;text-decoration:none}
+.btn:hover{box-shadow:0 0 0 3px rgba(122,162,255,0.15) inset;border-color:rgba(255,255,255,0.25)}
+.btn-primary{background:linear-gradient(180deg,#2a3e7a,#1b2b55);border-color:#3d5bbf}
+.btn-ghost{background:transparent;border-color:rgba(255,255,255,0.15)}
+.kbd{background:#0f1831;border:1px solid rgba(255,255,255,0.15);padding:2px 6px;border-radius:6px;color:#cfe0ff}
+.result{margin-top:14px;padding:14px;background:linear-gradient(180deg,rgba(0,0,0,0.25),rgba(0,0,0,0.1));border:1px solid rgba(255,255,255,0.07);border-radius:12px}
+.badge{display:inline-block;padding:4px 8px;border-radius:100px;font-size:12px;border:1px solid rgba(255,255,255,0.2);margin-right:6px;margin-bottom:6px}
+.badge-ok{background:rgba(138,255,193,0.12);border-color:rgba(138,255,193,0.4)}
+.badge-danger{background:rgba(255,107,107,0.12);border-color:rgba(255,107,107,0.4)}
+.prog{height:10px;background:#0e1732;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);margin-top:8px}
+.prog>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%}
+.sample-list{display:flex;flex-direction:column;gap:10px;margin-top:6px;max-height:260px;overflow:auto}
+.sample-item{display:flex;align-items:center;justify-content:space-between;gap:10px;background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.08);padding:10px;border-radius:12px}
+.sample-item audio{width:100%}
+.footer{opacity:.8;color:var(--muted);margin-top:20px}
+.footer a{color:var(--accent)}

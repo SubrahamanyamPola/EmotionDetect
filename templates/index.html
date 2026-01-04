@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>EmotionX — Emotion Recognition Demo</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <div>
+        <h1>EmotionX — Emotion Recognition</h1>
+        <div class="subtitle">Classify emotions from <strong>Text</strong> and <strong>Audio</strong> using lightweight ML models (static data).</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px">
+        <a class="btn btn-ghost" href="/docs">API Docs</a>
+        <a class="btn btn-ghost" href="/metrics">Metrics</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>1) Text Emotion</h2>
+        <p>Enter any sentence and get the predicted emotion with confidence bars.</p>
+        <textarea id="text-input" placeholder='Type something with emotion... e.g., "I&#39;m so excited to see you!"'></textarea>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btn-primary" onclick="predictText()">Predict Emotion</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('text-input').value='I am frustrated by the delays and it makes me angry.'; predictText();">Try Example</button>
+        </div>
+        <div id="text-output" class="result"></div>
+      </div>
+
+      <div class="card">
+        <h2>2) Audio Emotion</h2>
+        <p>Upload a short <strong>.wav</strong> file, or use the built-in samples below.</p>
+        <input id="audio-file" class="input" type="file" accept=".wav"/>
+        <div class="row" style="margin-top:10px">
+          <button class="btn btn-primary" onclick="predictAudioFromUpload()">Predict Uploaded Audio</button>
+          <button class="btn btn-ghost" onclick="document.getElementById('audio-file').value='';">Clear</button>
+        </div>
+        <div id="audio-output" class="result"></div>
+
+        <h3 style="margin-top:16px">Sample Clips</h3>
+        <div class="sample-list" id="sample-list"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:22px">
+      <h2>About this demo</h2>
+      <p>This is a fully offline, end-to-end demo. It uses a TF-IDF + Logistic Regression model for text, and a simple audio feature + Random Forest model for audio. Both are trained on small static datasets bundled with this app. For real research, you’d use larger datasets and deep models (e.g., BERT, wav2vec).</p>
+      <div class="badge badge-ok">Emotions: anger · disgust · fear · joy · neutral · sadness · surprise</div>
+    </div>
+
+    <div class="footer">Built for your project — no internet required. 🌟</div>
+  </div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>EmotionX — API Docs</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <div>
+        <h1>REST API Documentation</h1>
+        <div class="subtitle">Swagger-like docs for text & audio endpoints.</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px">
+        <a class="btn btn-ghost" href="/">Home</a>
+        <a class="btn btn-ghost" href="/metrics">Metrics</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>OpenAPI</h2>
+      <p>Raw spec: <a class="btn" href="/openapi.json">/openapi.json</a></p>
+    </div>
+
+    <div class="card">
+      <h2>POST /predict_text</h2>
+      <p><strong>Body (application/json)</strong></p>
+      <pre>{ "text": "I am so happy to see you!" }</pre>
+      <p><strong>Response</strong></p>
+      <pre>{ "label": "joy", "probabilities": { "joy": 0.81, "neutral": 0.12, "surprise": 0.04, ... } }</pre>
+      <p><strong>cURL</strong></p>
+      <pre>curl -X POST http://127.0.0.1:5000/predict_text -H "Content-Type: application/json" -d "{\"text\": \"I am so happy to see you!\"}"</pre>
+    </div>
+
+    <div class="card">
+      <h2>POST /predict_audio</h2>
+      <p><strong>Option A — Upload file (multipart/form-data)</strong></p>
+      <pre>curl -X POST http://127.0.0.1:5000/predict_audio -F file=@path/to/sample.wav</pre>
+      <p><strong>Option B — Use bundled sample (application/json)</strong></p>
+      <pre>curl -X POST http://127.0.0.1:5000/predict_audio -H "Content-Type: application/json" -d "{ \"sample_path\": \"joy_1.wav\" }"</pre>
+      <p><strong>Response</strong></p>
+      <pre>{ "label": "joy", "probabilities": { "joy": 0.44, "surprise": 0.28, ... } }</pre>
+    </div>
+
+    <div class="card">
+      <h2>GET /api/samples</h2>
+      <p>List built-in audio samples.</p>
+      <pre>curl http://127.0.0.1:5000/api/samples</pre>
+    </div>
+
+    <div class="card">
+      <h2>GET /api/health</h2>
+      <p>Health check.</p>
+      <pre>curl http://127.0.0.1:5000/api/health</pre>
+    </div>
+  </div>
+</body>
+</html>

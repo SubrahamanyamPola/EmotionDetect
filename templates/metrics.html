@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>EmotionX — Metrics</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo"></div>
+      <div>
+        <h1>Metrics & Evaluation</h1>
+        <div class="subtitle">Confusion matrices for bundled text & audio models (validation splits).</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:10px">
+        <a class="btn btn-ghost" href="/">Home</a>
+        <a class="btn btn-ghost" href="/docs">API Docs</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Text Model (TF-IDF + LogisticRegression)</h2>
+        <img alt="Text Confusion Matrix" src="/static/metrics/text_cm.png" style="max-width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/>
+        <pre style="white-space:pre-wrap" id="text-report">{{ text_report }}</pre>
+      </div>
+      <div class="card">
+        <h2>Audio Model (Librosa features + RandomForest)</h2>
+        <img alt="Audio Confusion Matrix" src="/static/metrics/audio_cm.png" style="max-width:100%;border-radius:12px;border:1px solid rgba(255,255,255,0.1)"/>
+        <pre style="white-space:pre-wrap" id="audio-report">{{ audio_report }}</pre>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
